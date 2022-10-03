@@ -1,0 +1,23 @@
+.root{
+    height:calc(100vh - (80.8px * 2));
+    display:flex;
+    width:100%;
+    justify-content:center;
+    align-items: center;
+}
+.root > div{
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+.description{
+width:500px;
+margin-right:40px;
+}
+.illustration{
+    height:400px;
+}
+.illustration img{
+    height:100%;
+    transform:rotate(25deg);
+}

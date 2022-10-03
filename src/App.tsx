@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
+import Header from './components/Layout/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import routes from './routes';
+import styles from './index.module.css';
+import theme from './theme'
+import { ChakraProvider } from '@chakra-ui/react'
+import {RootState} from 'store'
+import {useSelector} from 'store/hooks';
 function App() {
+  const isLogged = useSelector((state) => state.profile.isLogged);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ChakraProvider theme={theme}>
+        <Header />
+        <main className={styles.main}>
+          <Routes>
+            {isLogged ? routes.logged.map(({ path, element }) => (
+              <Route path={path} element={element} />
+            )) : routes.default.map(({ path, element }) => (
+              <Route path={path} element={element} />
+            ))}
+          </Routes>
+        </main>
+      </ChakraProvider>
+    </BrowserRouter>
   );
 }
 

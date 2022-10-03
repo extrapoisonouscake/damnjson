@@ -1,13 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
+
+@font-face {
+  font-family: 'HelveticaNeue Roman';
+  src: url('fonts/HelveticaNeueCyr-Roman.ttf');
+}
+@font-face {
+  font-family: 'FoundersGrotesk Bold';
+  src: url('fonts/FoundersGrotesk-Bold.otf');
+}
+
+@font-face {
+  font-family: 'FoundersGrotesk Medium';
+  src: url('fonts/FoundersGrotesk-Medium.otf');
+}
+
+:root {
+  --text: #000;
+  --brand:#FFE381;
+  --primary:#357266;
+}
+
+::selection{
+  background:var(--brand);
+  color:#000;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  color: var(--text);
+  font-family: 'HelveticaNeue Roman', system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'SFProDisplay';
+}
+
+a {
+  text-decoration: none;
 }
